@@ -107,8 +107,8 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 5 23 23 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0b8df5bc-e48a-4f57-ba5f-e2192e5b3e74)
 
-- Ping DC-1's IP address with "ping -t" (perpetual ping meaning it will ping forever until you stop it)
-- As you can see that it times out because DC-1's windows firewall is blocking ICMP traffic
+- Ping DC-1's private IP address with "ping -t" (perpetual ping meaning it will ping forever until you stop it)
+- As you can see that it times out and fails because DC-1's local windows firewall is blocking ICMP traffic
 
 ![Screen Shot 2023-12-22 at 5 30 04 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2094e59e-32c0-4d40-880a-bdf5f7856a14)
 
@@ -135,65 +135,60 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 5 42 34 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f452902e-347d-4b4a-a6aa-4fac199ae911)
 
-
-- Find "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)" Private and Domain Profiles 
+- Find both "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)" Private and Domain Profiles 
 - Right click and hit "Enable Rule" to both of them
 
 ![Screen Shot 2023-12-22 at 5 48 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/225a7a1c-6e07-4641-8706-9e4cd498fe78)
 
-- Now go back to your Client-1 remote desktop connection & observe how after we enabled the ICMP echo requests the ping started working in the Command Prompt
+- Now go back to your Client-1 remote desktop connection & observe how after we enabled the ICMP echo requests the ping succeeded and started working in the Command Prompt
 
 ![Screen Shot 2023-12-22 at 5 54 59 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/fac3bbf6-2337-4019-86c5-cf6a9a11dcca)
 
+- Now at least we know there is connectivity between the Client and Domain Controller
 - Type in "CTRL + C" to stop
 
 ![Screen Shot 2023-12-22 at 5 55 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/561ad303-334e-4831-b516-a8397468e2bd)
 
+- Next we will install Active Directory Domain Services to DC-1
+  - You can type in "hostname" in the Command Prompt if you ever get lost on which remote desktop connection you're in
+  - Also Windows 10 won't have "Server Manager" (which is used to add and remove all the necessary server software for Active Directory)
+    
+![Screen Shot 2023-12-22 at 6 03 14 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2d2dc39e-3a7b-4b19-b5ad-d6e2f2b8a9ca)
 
-- Return to DC-1 Overview Page in Azure
-- Copy the `Private IP Address` underneath `Networking`
+- If you don't see Server Manager you can simply click Start and find it 
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/efc871c0-1d87-40fb-819f-4f3cd4731941)
+![Screen Shot 2023-12-22 at 6 06 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9b5c8fb9-6da2-460c-966e-a11cea27af7c)
 
-- Go into Client-1's Virtual Machine
-- Type **Command Prompt** into the Windows Search Bar
-- Click `Run as Administrator`
+- Next click "Add roles and features"
+- This is how we install Active Directory
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/80537f7a-f50a-40e4-9f31-b65c3597f973)
+![Screen Shot 2023-12-22 at 6 11 06 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d776f38c-0423-47b1-9d49-618652a36ef3)
 
-- Type **ping -t (DC-1 Private IP Address)**
-   >_This will send data packets for response to DC-1 VM_
-- You'll see the connectivity between the Client and DC-1 VM's
-   >_Press `Ctrl+C` to stop the ping, or close the application_ 
+- Click "Next >" until you get to this page and choose "Active Directory Domain Services"
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/07527a4b-1a4a-42e5-9f30-60e70b55b009)
+![Screen Shot 2023-12-22 at 6 12 57 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/a7af0ed3-ef95-4226-891f-0ab122767c81)
 
-<h3>&#9316 Install Active Directory Domain Services in Domain Controller Virtual Machine</h3>
+- Click "Add Features"
+- Click "Next >" through the dependencies then hit "Install"
 
-- Login into DC-1's Virtual Machine
-- Open `Server Manager`
-- Click `Add Roles and Features`
+![Screen Shot 2023-12-22 at 6 14 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/89802a2a-d3f9-40d9-9b81-4d4bdf4e12d8)
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/1d391c3b-06b2-435a-87a1-3e08077dec1f)
+- At the top right of your screen, click the flag icon with a caution symbol. Click "Promote this server to a domain controller"
+- This is actually how we finish installing Active Directory and turn the server into a domain controller
 
-- Click `Next` until you reach `Select Server Roles` tab
-- Checkmark `Active Directory Domain Services`
-- Click `Add Features`
-- Click `Next` until the Confirmation tab
-- Click `Install` then `Close`
+![Screen Shot 2023-12-22 at 6 22 55 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/18a4383c-4373-4e19-a0c6-a546ba6341fc)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/f2e3078b-7c31-4fa5-bf8f-ce9f3c069241)
+- Choose "Add a new forest"
+- This is where we name the domain whatever we'd like. It's not going to be public. To keep things generic I just chose "mydomain.com" for the Root domain name as it essentially doesn't matter for now.
+- Click "Next >"
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/90dabda9-536e-4e90-bef4-299135200218)
+![Screen Shot 2023-12-22 at 6 26 53 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/fcd5517c-e8a2-4101-80de-4b1105a6e4d4)
 
-- Located on the Top Right Header, Click the Flag icon with a Caution Symbol
-- Click `Promote this server to a domain controller`
+- Set Password to "Password1" 
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/77a6e8a4-5717-40bf-a2e2-c08cc3fa95cb)
+![Screen Shot 2023-12-22 at 6 33 50 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/a755e4bb-9d4f-4a13-9161-da1cbe7da5b8)
 
-- Click `Add a new forest` within the Deployment Configuration Tab
-- Type **mydomain.com**
-- Click `Next`
+- Keep clicking "Next >" and then "Install"
 
   ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/3f5ab5e7-1725-4ad0-8cd3-ccacc656d574)
 
