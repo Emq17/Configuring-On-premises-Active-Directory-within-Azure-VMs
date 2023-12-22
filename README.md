@@ -123,12 +123,32 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 5 36 41 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d224132b-6a49-47f9-8b20-204f5639195b)
 
-- Click `Inbound Rules`
-- Sort by `Protocol`
-- Find `Core Networking Diagnostics` - `ICMP Echo Request (ICMPv4-In)`
-- Select them and click `Enable Rule`
+- Click "Inbound Rules"
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/754d1de9-2d97-4f14-8bf7-c522358fbfd5)
+![Screen Shot 2023-12-22 at 5 39 10 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f9ca786c-38a1-4353-a1a5-a970b47f2875)
+
+- Sort by "Protocol"
+
+![Screen Shot 2023-12-22 at 5 41 21 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/22ad8bfc-d496-47d5-b189-f4c671f3f20b)
+
+- Find ICMPv4 Protocols
+
+![Screen Shot 2023-12-22 at 5 42 34 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f452902e-347d-4b4a-a6aa-4fac199ae911)
+
+
+- Find "Core Networking Diagnostics - ICMP Echo Request (ICMPv4-In)" Private and Domain Profiles 
+- Right click and hit "Enable Rule" to both of them
+
+![Screen Shot 2023-12-22 at 5 48 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/225a7a1c-6e07-4641-8706-9e4cd498fe78)
+
+- Now go back to your Client-1 remote desktop connection & observe how after we enabled the ICMP echo requests the ping started working in the Command Prompt
+
+![Screen Shot 2023-12-22 at 5 54 59 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/fac3bbf6-2337-4019-86c5-cf6a9a11dcca)
+
+- Type in "CTRL + C" to stop
+
+![Screen Shot 2023-12-22 at 5 55 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/561ad303-334e-4831-b516-a8397468e2bd)
+
 
 - Return to DC-1 Overview Page in Azure
 - Copy the `Private IP Address` underneath `Networking`
