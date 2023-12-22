@@ -2,21 +2,18 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
-
->**Note***
->_The following uses material created in the previous demonstration,  ["Let's Create Resource Groups and Deploy a Virtual Machine Together!"](https://github.com/CarlosAlvarado0718/Virtual-Machine)._
+<h1>Configuring-On-Premises-Active-Directory-Within-Azure-VMs</h1>
+There are two different types of Active Directory essentially. There's the type that is a software that you install on a computer you own (on-premises) and then there is another called Azure Active Directory that is a serverless software as a service directly in the cloud. This walkthrough that I created demonstrates and outlines the implementation of on-premises Active Directory within Azure virtual machines. This exercise allows us to explore deeper into AD, enhancing our understanding of its various components.<br />
 
 
-<h2>Environments and Technologies Used</h2>
+<h2>Environments and Technologies</h2>
 
-- Microsoft Azure (Virtual Machines/Compute)
-- Remote Desktop
+- Microsoft Azure Subscription
+- Microsoft Remote Desktop (Mac)
 - Active Directory Domain Services
 - PowerShell
 
-<h2>Operating Systems Used </h2>
+<h2>Operating Systems</h2>
 
 - Windows Server 2022
 - Windows 10 (21H2)
