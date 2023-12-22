@@ -83,35 +83,14 @@ A domain controller is a type of server or computer that basically has Active Di
 
 ![Screen Shot 2023-12-22 at 3 41 54 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/86e5cf82-3ee9-4295-9301-8f6258acbe24)
 
-  - On the left under "Settings" click "IP configurations
-  - Change Assignment to Static instead of Dynamic (so that it doesn't change regardless if we turn our computer off/on)
+  - On the left under "Settings" click "IP configurations"
+  - Choose "ipconfig1"
+  - Change Allocation to Static instead of Dynamic (so that it doesn't change regardless if we turn our computer off/on which will allow users to login using the domain name without worry)
 
 ![Screen Shot 2023-12-22 at 3 45 55 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/dff97893-3ecd-4c51-a8ff-924e30071d3a)
 
-- Set `Virtual Network` to **DC-1-vnet**
-- Click `Review + check`
-- Once Validation passes, click `Create`
 
 
-<h3>&#9314 Assign Domain Controller's Private IP Address to STATIC</h3>
-
->**Note***
->_Later in the Tutorial, the DC's NIC Private IP will vary so setting it to static will allow users to login using the domain name without worry_
-
-- Go t DC-1 Virtual Machine Overview Page
-- Click on `Networking` then `Network Interface`
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/a86cf0ab-fc56-456b-bae5-df14a5ce3d14)
-
-- Click on `IP Configuration`
-- Click on `ipconfig` (You can see the Private IP Address is Dynamic)
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/ac108e4f-1f5a-427d-b4c2-4afa2dcefeec)
-
-- Change `Assignment` to **Static**
-- Click `Save`
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/20d55691-3648-4a28-94c5-b36139811882)
 
 <h3>&#9315 Ensure Connectivity between the Client and Domain Controller</h3>
 
