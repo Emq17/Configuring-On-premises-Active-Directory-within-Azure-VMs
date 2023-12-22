@@ -18,58 +18,69 @@ There are two different types of Active Directory essentially. There's the type 
 - Windows Server 2022
 - Windows 10 (21H2)
 
-<h2>High-Level Deployment and Configuration Steps</h2>
+<h2>Deployment and Configuration</h2>
 
-- Set up 2 Virtual Machines within Azure:
-  - **Domain Controller Virtual Machine (Windows Server 2022)**
-  - Set the `NIC Private IP Address` to **Static**
-  - **Client Virtual Machine (Windows 10)**
-  - Set the `Resource group` and `Vnet` as DC's
-  - Set the `DNS` Server to use DC's `Private IP Address`
-- Be logged into both Virtual Machines using `Remote Desktop Connection (RDP)`
-- Enabling Inbound Rules for `Core Networking Diagnostics` within DC's Firewall to ensure connectivity between the Client and DC
-- Installing `Active Directory Domain Services` within DC's Virtual Machine
-- Create an Admin and User Account in Active Directory
-- Link Client's VM to a Domain, log in using the original Admin Account
-- Set Remote Desktop Connection for non-administrative users on Client VM
-- Create additional users and attempt to log in to the Client VM as one of those users
+<h3>Creating the Domain Controller Virtual Machine</h3>
 
-<h2>Deployment and Configuration Steps</h2>
-
-<h3>&#9312 Creating the Domain Controller Virtual Machine</h3>
-
->**Note***
->_A domain controller is a type of server that processes requests for authentication from users within a computer domain._
+A domain controller is a type of server or computer that basically has Active Directory installed on it
 
 - Create an Azure Virtual Machine
-- Set `Virtual Machine Name` to **DC-1**
-- `Resource group` will automatically be given
-- Set `Region` to **(US) WEST 3**
-- Set `Image` to **Windows Server 2022 Datacenter: Azure Edition**
-- Set `Size` to **Standard_E2s_v3 - 2 vcpus, 16 GiB memory**
-- Set `Username` to **labuser**
-- Set `Password` to **osticketPassword1**
-- Click licensing checkbox
-- Click `Review + create`
-- Once Validation is approved, click `create`
+  - Resource Group: Create new --> "AD-Lab"
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e7282226-c698-4213-8e9d-52c5ff0ec9eb)
+![Screen Shot 2023-12-22 at 2 30 09 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/4451e95c-3374-459d-8cad-6d21799d14a0)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/7fb2b96b-7a2e-46c9-9134-a5956d7744a2)
+  - Virtual Machine Name: DC-1 
+  - Region: (US) West US 3
+  - Image: Windows Server 2022 Datacenter: Azure Edition - x64 Gen2
+  - Size: Standard_E2s_v3 - 2 vcpus, 16 GiB memory (we want to use something that at least has 2 virtual cpu's. If you have 1 it's going to be kind of slow)
+
+![Screen Shot 2023-12-22 at 2 36 03 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/cccd9481-ac90-406d-ad26-a826cc1ce30d)
+  
+  - Username: labuser
+  - Password: Password1234
+  - Click "Review + create"
+  - Open up a notepad & make sure to keep credentials just so you don't forget it
+
+![Screen Shot 2023-12-22 at 2 42 01 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/07e7697a-10e6-46cf-91bd-5841d7d5b766)
+
+  - Once Validation passes, click "create"
+
+![Screen Shot 2023-12-22 at 3 13 10 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/6e4af4ca-0a53-4974-ad1a-eae8c0915e93)
+
+<h3>Creating a Client Virtual Machine</h3>
+
+- Follow the same steps as before but with the following:
+  - Resource group: Same Resource Group DC-1 is using (AD-Lab)
+  - Virtual Machine Name: Client-1
+  - Region: Same region ((US) West US 3)
+  - Image: Windows 10 Pro, version 22H2 - x64 Gen2
+  - Size: Standard_E2s_v3 - 2 vcpus, 16 GiB memory
+
+![Screen Shot 2023-12-22 at 3 32 32 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/248ded43-1ca1-48a8-8bc8-63e32f755493)
+
+  - Username: labuser
+  - Password: Password1234
+  - Keep note of these credentials
+  - Check "Licensing" box
+  - Click "Next : Disks >" until you see the "Networking" tab
+
+![Screen Shot 2023-12-22 at 3 33 31 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/384e394d-fb33-497b-9b49-60d8b3722a9f)
+
+  - Use the same Virtual Network as our Domain Controler (DC-1-vnet) - should be automatically created when deploying the first Virtual Machine (if you don't see it your first VM is not finished deploying or you might have to refresh the page)
+  - Subnet: Default 
+  - Click "Review + create"
+  - Once Validation passes, click "Create"
+
+![Screen Shot 2023-12-22 at 3 35 16 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/87374171-15ff-445c-88ee-614ada8a61b4)
 
 
-<h3>&#9313 Creating a Client Virtual Machine</h3>
+- Set the Domain Controller's NIC Private IP address to be static
+  - Go back to your DC-1 Virtual Machine
+  - On the left side under "Settings" click "Networking" then choose "Network Interface: dc-1164"
+  - On the left under "Settings" click "IP configurations
+  - Change Assignment to Static instead of Dynamic (so that it doesn't change regardless if we turn our computer off/on)
 
-- Follow the same steps as before with the following exceptions:
-- Set `Resource group` to **DC's Resource Group**
-- Set `Virtual Machine Name` to **Client-01**
-- Set `Username` to **Clientuser**
-- Set `Image` to **Windows 10 Pro, version 22H2 - x64 Gen2**
-- Click `Next` until you reach `Networking`
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/5e230bd3-1578-44b3-9bf7-e74a5ebc399c)
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/99d44a4c-d673-4612-adb5-0f65442a8d9f)
 
 - Set `Virtual Network` to **DC-1-vnet**
 - Click `Review + check`
