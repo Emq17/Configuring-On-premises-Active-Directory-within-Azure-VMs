@@ -76,11 +76,17 @@ A domain controller is a type of server or computer that basically has Active Di
 
 - Set the Domain Controller's NIC Private IP address to be static
   - Go back to your DC-1 Virtual Machine
-  - On the left side under "Settings" click "Networking" then choose "Network Interface: dc-1164"
+
+![Screen Shot 2023-12-22 at 3 40 32 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/5455e473-dfad-4b20-b721-78154e1f02cf)
+
+  - On the left side under "Settings" click "Networking" then click the link next to "Network Interface:"
+
+![Screen Shot 2023-12-22 at 3 41 54 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/86e5cf82-3ee9-4295-9301-8f6258acbe24)
+
   - On the left under "Settings" click "IP configurations
   - Change Assignment to Static instead of Dynamic (so that it doesn't change regardless if we turn our computer off/on)
 
-
+![Screen Shot 2023-12-22 at 3 45 55 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/dff97893-3ecd-4c51-a8ff-924e30071d3a)
 
 - Set `Virtual Network` to **DC-1-vnet**
 - Click `Review + check`
