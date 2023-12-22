@@ -90,24 +90,38 @@ A domain controller is a type of server or computer that basically has Active Di
 ![Screen Shot 2023-12-22 at 3 45 55 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/dff97893-3ecd-4c51-a8ff-924e30071d3a)
 
 
+<h3>Ensure connectivity between the Client and Domain Controller</h3>
 
-
-<h3>&#9315 Ensure Connectivity between the Client and Domain Controller</h3>
-
->**Note***
->_Refer back to ["Let's Create Resource Groups and Deploy a Virtual Machine Together!"](https://github.com/CarlosAlvarado0718/Virtual-Machine) in order to Remote Desktop Connect into your Virtual Machines._
+Refer back to [Establishing Virtual Machines with Remote Desktop](https://github.com/Emq17/Establishing-Virtual-Machines-With-Remote-Desktop) in order to Remote Desktop Connect into your Virtual Machines.
 
 - Login to the Client's Virtual Machine
+  
+![Screen Shot 2023-12-22 at 5 17 56 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2e1b9433-c839-4c9b-8e12-5cec88883927)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/588362ad-74be-4d32-9f00-825a73d8eb08)
+- Grab DC-1's private IP address
 
-- Login to the Domain Controller's Virtual Machine
+![Screen Shot 2023-12-22 at 5 21 15 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/dc35375f-0248-4079-a1cd-fe5271c8ace1)
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e4e96c1b-3bc1-4488-aa8d-f312aefc2bc5)
+- Go back to your remote desktop connection for Client-1
+- Go to start & open command line
 
-- On the Domain Controller's VM, type into Windows search bar **Windows Defender Firewall with Advanced Security**
+![Screen Shot 2023-12-22 at 5 23 23 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0b8df5bc-e48a-4f57-ba5f-e2192e5b3e74)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/671eac9e-4f64-41ea-8cac-3deea53b05ff)
+- Ping DC-1's IP address with "ping -t" (perpetual ping meaning it will ping forever until you stop it)
+- As you can see that it times out because DC-1's windows firewall is blocking ICMP traffic
+
+![Screen Shot 2023-12-22 at 5 30 04 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2094e59e-32c0-4d40-880a-bdf5f7856a14)
+
+- Log into DC-1's remote desktop connection. Repeat the same steps as usual to connect.
+- As you can see after connecting, we should see two separate PC's now. One for Client-1 & another for DC-1
+
+![Screen Shot 2023-12-22 at 5 32 48 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/4890590a-ad99-4711-87b0-ff7c7101945e)
+
+- Inside DC-1 search up "wf.msc" or type in "firewall" and choose "Windows Defender Firewall with Advanced Security"
+
+![Screen Shot 2023-12-22 at 5 36 14 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/4ffc4caa-da4e-43f7-891f-b084a0f10bb6)
+
+![Screen Shot 2023-12-22 at 5 36 41 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d224132b-6a49-47f9-8b20-204f5639195b)
 
 - Click `Inbound Rules`
 - Sort by `Protocol`
