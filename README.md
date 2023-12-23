@@ -266,7 +266,17 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 32 50 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/eef6f211-8369-440b-8488-d91b71934116)
 
+- If you ever get confused once again on which domain context you're using you can use the Command Prompt
+- Type in "whoami" and you'll see which username you're logged in as
+
+![Screen Shot 2023-12-22 at 7 42 47 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c9e8b498-daed-432a-a54e-4a7db4cd025f)
+
 - Next we will log out of DC-1 and log back in as "mydomain.com\jane_admin"
+- You can also use the Command Prompt to do this by typing in "logoff"
+
+![Screen Shot 2023-12-22 at 7 44 58 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/8ad0590d-5e3f-4f76-9ca7-132a43591308)
+
+
 
 
 
