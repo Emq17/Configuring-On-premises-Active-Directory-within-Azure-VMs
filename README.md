@@ -214,6 +214,29 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 01 07 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0e91dbf0-7d5d-4483-8bcd-461ab27f0647)
 
+- Now we will create some organizational units by right clicking "mydomain.com" --> "New" --> Organizational Unit 
+
+![Screen Shot 2023-12-22 at 7 05 32 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/1e7eaf9c-eed1-420b-9148-dc1f56820cbc)
+
+- Create two units named as "_EMPLOYEES" and "_ADMINS" (Using this format helps it easy to filter them out)
+
+![Screen Shot 2023-12-22 at 7 08 05 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/b29b5740-3eb7-4ff8-bc46-728ed1dd29b5)
+
+- Hit "Refresh"
+
+![Screen Shot 2023-12-22 at 7 10 57 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/e6dff8d3-094f-441e-9b98-7c832575356e)
+
+- Now you can see them at the top and easier to deal with
+
+![Screen Shot 2023-12-22 at 7 14 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f674c509-1925-459c-8f98-06f19c546215)
+
+
+
+
+
+
+
+
 
 
 ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/1988bfe0-930e-45b6-abec-42123a1fe0dc)
