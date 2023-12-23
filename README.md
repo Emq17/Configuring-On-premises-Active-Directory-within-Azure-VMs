@@ -431,6 +431,28 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 11 06 47 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/8d6fa6f6-d9ff-4178-846f-21bd959d8f9b)
 
+- What we can do now is go ahead and click on any random name in the "_EMPLOYEES" file and use it to log into Client-1 with it
+  - Double click on a name
+  - Go to "Account"
+  - Copy its User logon name
+
+![Screen Shot 2023-12-22 at 11 13 08 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/a1316822-c204-4d59-b8c6-30985ee3b65e)
+
+- Go back to Client-1
+- Log out
+- Then log back into it using "mydomain.com\bax.somu and Password1
+
+![Screen Shot 2023-12-22 at 11 15 21 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/68b85e50-cea7-416f-ab02-d7f719efad26)
+
+![Screen Shot 2023-12-22 at 11 15 42 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/556359f3-04a9-46c7-a5b6-8f1812e2b26d)
+
+- This account has obviously never logged into Client-1 before but because "bax.somu" is on the domain and Client-1 is joined to the domain, Client-1 can look to the domain and see if the user is legit, which then the domain controller says yes, and it lets it log in into Client-1 as a new user.  
+
+![Screen Shot 2023-12-22 at 11 20 20 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/ca3b5714-a617-4871-b14f-c75ec6e89dd9)
+
+- By going to the File Explorer, "This PC", "Windows (C:), and then "Users", you can see every user that logs into this computer (including "bax.somu" up top) because a new folder is going to be created for them
+
+![Screen Shot 2023-12-22 at 11 22 13 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/ec5e35c1-160e-45e1-889d-f3ce246c657c)
 
 
 
@@ -443,19 +465,7 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 
 
-- Open `Server Manager`
-- Open `Active Directory Users and Computers`
-- Open `mydomain.com`
-- Open `_EMPLOYEES` folder
-- You can see the created users
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/a9cca5a6-0315-4c4f-bb8e-a95176b93c4f)
-
-- Log into Client-01 with one of the randomly created user (I used **basaho.fap**)
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/4979210e-504d-432b-8910-7ea8a848355b)
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/c88666f2-157b-42cb-bc52-a6808743b50b)
 
 - Back to DC-1
 - Right Click your user's account
