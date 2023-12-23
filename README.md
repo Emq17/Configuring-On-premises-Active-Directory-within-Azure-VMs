@@ -292,13 +292,25 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 59 38 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/80f4fdfa-5732-472c-831f-045aa6e7dee2)
 
+- Go back to Client-1's remote desktop connection
+- Right click start and choose "System"
 
+![Screen Shot 2023-12-22 at 8 07 10 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9905568b-5ca3-4714-bd3b-d068ab171b5c)
 
+- Click on "Rename this PC (advanced)" over on the right side
+- Then hit "Change"
 
+![Screen Shot 2023-12-22 at 8 09 03 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/77097504-59c4-43ca-a0dc-02b1c33b76d8)
 
+- Remember we are using the public DNS
+- If you go to your Command Prompt and type in "ipconfig /all", under "DNS Servers" you can see a public IP address and not our Domain Controllers IP address
+- So when you try to join our domain that we just created called "domain.com", you will see an error message stating that the Domain Controller for the Domain cannot be contacted because it tried to reach out to the DNS Server you see in the Command Prompt and tried to ask essentially "what is the domain controller?" and there is none. 
 
+![Screen Shot 2023-12-22 at 8 13 42 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d2ede669-7cad-4a78-88af-60a49a6dfd2d)
 
-
+- Moving forward, we need to change our IP settings in the Azure Portal. It's possible to set it inside the Virtual Machine but generally you don't want to change IP settings from within the VM.
+- Find DC-1 in your Azure Portal and retrieve its private IP address
+- 
 
 
 
