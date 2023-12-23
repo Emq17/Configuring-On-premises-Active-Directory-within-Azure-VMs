@@ -365,120 +365,54 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 10 09 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c0da222f-2a71-4151-b9fc-4d45db95243d)
 
+- Once logged in, right click "Start", click "System", to the right click "Remote Desktop", then at the bottom click "Select users that can remotely access this PC"
 
+![Screen Shot 2023-12-22 at 10 12 48 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/15859d8d-5dc1-4f5f-b6dd-a240695c35a7)
 
+- Click "Add"
+- Type in "Domain Users" and click on "Check Names"
+- So now we have added in all domain users to be able to log into this computer remotely
+- Hit "OK"
 
+![Screen Shot 2023-12-22 at 10 14 15 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f60f60e4-37b8-4fad-97fc-72440c5818e2)
 
+- Go back to your DC-1 remote desktop connection
+- Open up Active Directory
+- Expand "mydomain.com" on the left side
+- Click on "Users" on the very bottom
+- Click on "Domain Users"
 
+![Screen Shot 2023-12-22 at 10 17 55 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/1be7e24d-1375-4f02-8b2b-966ed4855da8)
 
+- Click on the "Members" tab
+- So anybody within this group should theoretically be allowed to log into Client-1
+- You can now log into Client-1 as a normal, non-administrative user now
+- Normally you'd want to do this with "Group Policy" that allows you to change MANY systems at once but is a bit out of scope for this demonstration
 
-- Click `OK`
+![Screen Shot 2023-12-22 at 10 19 45 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0decfe22-785c-4938-be7d-084b868248b2)
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/3bca3ba5-8405-44cd-8ac7-afdf748a551c)
+- The next thing that we're going to do is to create a bunch of additional users and attempt to log into client-1 with one of the users
+  - First thing we do is to log into DC-1 as jane_admin (if you already are, make sure by opening up your command line and typing in "whoami" and "hostname"
+ 
+![Screen Shot 2023-12-22 at 10 24 36 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/29a57373-1c5e-4dbb-afa5-9c7c8bb2ff28)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/f6471f2f-8404-4ab8-b4f6-415977c3fc3e)
+- Open "Windows Powershell ISE" as an administrator by searching it up in the Start menu (Powershell is a essentially a Windows native scripting language that you can literally do anything with)
 
-- Enter **mydomain.com\jane_admin**
-- Enter **Password1**
-- Click `OK`
-- A restart will begin
+![Screen Shot 2023-12-22 at 10 35 01 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/69f2b754-2114-4959-bdfb-2ba338aa96c0)
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/24754541-599a-46bd-bf97-248396735de3)
+- Click on "Yes"
 
-- Use Remote Desktop Connection (RDP) to log into Client-01 Virtual Machine
-- Login using **mydomain.com\jane_admin** Account
+![Screen Shot 2023-12-22 at 10 35 47 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/6949c928-8ae6-4aa2-bcc6-90c16355221d)
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/d50c3b31-b7d2-4598-88e9-cf0e517f798c)
+- Create a New Script
 
-<h3>&#9319 Setup Remote Desktop for non-administrative users on Client-01</h3>
+![Screen Shot 2023-12-22 at 10 37 39 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9019eee4-7a27-4d00-95ec-96f899f0fe6e)
 
-- Right Click the Windows Button
-- Click `System`
-- Click `Remote Desktop`
+- Copy the code inside the "code.txt" file and paste it into the box:
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e944ba21-769a-4f0d-afd5-9f6b312be69b)
+https://github.com/Emq17/PowerShell-ISE-Script/blob/main/code.txt
 
-- Click `Select users that can remotely access this PC`
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/f8d04fe1-d77b-4c10-ad32-68bbb7d41f24)
-
-- Click `Add...`
-- Type in **Domain Users**
-- Click `Check Names`
-- Click `OK`
-- Click `OK` again
-   >**Note***
-   >_Client-01 is now a normal, non-administrative user_
-
-   ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/d0c950af-941f-48e0-b9b5-4664523409d7)
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/260fa179-e8e0-4bee-9617-eb9a506b7a9c)
-
-<h3>&#9320 Creating 10,000 users and logging into Client-01 with one of them</h3>
-
-- Return to DC-1 as **jane_admin**
-- Search on Windows `Powershell_ISE`
-- Right Click and Select `Run as administrator`
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/c7603514-1a9b-4c3c-9063-53360d0f70d6)
-
-- At the top menu, Click `New Script`
-- Using this premade script, copy and paste the code into the box
-
-<details close>
-  <summary> PowerShell Script </summary>
-  <p>
- # ----- Edit these Variables for your own Use Case ----- #
-$PASSWORD_FOR_USERS   = "Password1"
-$NUMBER_OF_ACCOUNTS_TO_CREATE = 10000
-# ------------------------------------------------------ #
-
-Function generate-random-name() {
-    $consonants = @('b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z')
-    $vowels = @('a','e','i','o','u','y')
-    $nameLength = Get-Random -Minimum 3 -Maximum 7
-    $count = 0
-    $name = ""
-
-    while ($count -lt $nameLength) {
-        if ($($count % 2) -eq 0) {
-            $name += $consonants[$(Get-Random -Minimum 0 -Maximum $($consonants.Count - 1))]
-        }
-        else {
-            $name += $vowels[$(Get-Random -Minimum 0 -Maximum $($vowels.Count - 1))]
-        }
-        $count++
-    }
-
-    return $name
-
-}
-
-$count = 1
-while ($count -lt $NUMBER_OF_ACCOUNTS_TO_CREATE) {
-    $fisrtName = generate-random-name
-    $lastName = generate-random-name
-    $username = $fisrtName + '.' + $lastName
-    $password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
-
-    Write-Host "Creating user: $($username)" -BackgroundColor Black -ForegroundColor Cyan
-    
-    New-AdUser -AccountPassword $password `
-               -GivenName $firstName `
-               -Surname $lastName `
-               -DisplayName $username `
-               -Name $username `
-               -EmployeeID $username `
-               -PasswordNeverExpires $true `
-               -Path "ou=_EMPLOYEES,$(([ADSI]`"").distinguishedName)" `
-               -Enabled $true
-    $count++
-}
-    </p>
-</details close>
-
-
->**Note***
->This script will create 10,000 accounts, using the password **Password1**, at it's set path: _EMPLOYEES
+- This script will create 10,000 accounts, using the password "Password1", at it's set path: _EMPLOYEES (which we had created earlier in a previous step)
 
 
 ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/23db777a-55c5-4d86-b067-3cbef62e7b8f)
