@@ -507,20 +507,10 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 11 50 56 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c6f42cdb-75f3-4abe-8807-1100d1226621)
 
+- This covers unlocking, disabling, re-enabling accounts, and resetting passwords because for sure you're going to be doing that a lot in your job
+- It might not be directly through Active Directory like this, but more than likey you will be doing some of these tasks in your earlier career 
+- Setting up Active Directory is a good skill to have as you may have to do this within your work many many times 
 
+<h1>Congratulations on concluding this comprehensive walkthough</h1>
 
-
-
-- Back to DC-1
-- Right Click your user's account
-- Click `Properties`
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/699b054a-d527-40d6-a5c4-5454c9621bc5)
-
-- Click `Account`
-- Now you can do actions from **Unlock Accounts, Reset Passwords, and More!!!**
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/1b919d51-d9de-4f72-97d9-c77031f1b2b5)
-
----
-<h1>CONGRATS!!! YOU'RE DONE!!!</h1>
+- Before closing anything out, keep in mind that we will be using this current environment in the next couple of walkthroughs as well
