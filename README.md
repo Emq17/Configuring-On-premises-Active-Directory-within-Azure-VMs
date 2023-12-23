@@ -408,17 +408,30 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 10 37 39 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9019eee4-7a27-4d00-95ec-96f899f0fe6e)
 
-- Copy the code inside the "code.txt" file and paste it into the box:
+- Using the link below, copy the code and paste it into the Powershell ISE new script box:
 
-https://github.com/Emq17/PowerShell-ISE-Script/blob/main/code.txt
+  - https://github.com/Emq17/PowerShell-ISE-Script/blob/main/code.txt
 
 - This script will create 10,000 accounts, using the password "Password1", at it's set path: _EMPLOYEES (which we had created earlier in a previous step)
 
+![Screen Shot 2023-12-22 at 10 56 22 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/431663a2-4f21-4e64-a07e-940a27790a1f)
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/23db777a-55c5-4d86-b067-3cbef62e7b8f)
+- Click on the "Run Script" icon
+
+![Screen Shot 2023-12-22 at 11 00 04 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/dc5936dd-81ca-4b9e-a2ff-47eb265be0fe)
+
+- You can see it start to create accounts with random names in them essentially just alternating vowels and consonants
+
+![Screen Shot 2023-12-22 at 11 01 34 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/1a148bac-6b23-43ee-b307-e1ca7127bcb7)
 
 
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/d7074419-2b61-4bb5-84b9-55130f65ce33)
+
+
+
+
+
+
+
 
 - Open `Server Manager`
 - Open `Active Directory Users and Computers`
