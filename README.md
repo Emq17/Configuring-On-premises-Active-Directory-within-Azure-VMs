@@ -189,23 +189,32 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 ![Screen Shot 2023-12-22 at 6 33 50 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/a755e4bb-9d4f-4a13-9161-da1cbe7da5b8)
 
 - Keep clicking "Next >" and then "Install"
+- It should automatically restart once finished & as you can see the remote desktop connection became disconnected
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/3f5ab5e7-1725-4ad0-8cd3-ccacc656d574)
+![Screen Shot 2023-12-22 at 6 51 29 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/18ecb7db-c4fc-4198-ab3b-2ebf7adea091)
 
-- Set `Password` as **Password1**
-- Click `Next` until `Install` option is enabled
-- Click `Install`
-    >_This action will restart the Domain Controller Virtual Machine_
+- Log back into DC-1
+  - Username: mydomain.com\labuser
+  - Password: Password1234
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/5d77e390-e84d-4035-a817-d30c49d93b4d)
+![Screen Shot 2023-12-22 at 6 49 18 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/81bd439e-57d5-40ef-b373-ec3cd0622d0e)
 
-- Log into DC-1's Virtual Machine using (RDP)
-- Select `More Choices`
-- Click `Use a different account`
-- Set the `Username` as **mydomain.com\labuser
-- Set the `Password` as **osticketPassword1**
-    >**Note***
-    >_Don't forget the password_
+- Now that our Domain Controller is back online and the Domain is set up and everything, we're going to create a couple Organizational Units (while there are a lot more use cases for them just think of these as folders) inside Active directory and an Administrative User
+
+- There are a couple ways to open up Active Directory
+  - You can go to "Tools" and then click "Active Directory Users and Computers"
+ 
+![Screen Shot 2023-12-22 at 6 58 48 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/5f952553-e70e-48a7-8411-c3756ed04302)
+
+  - Or click "Start" and search "Active Directory"  
+
+![Screen Shot 2023-12-22 at 6 59 44 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/3ebe5ed2-3123-4dff-b906-292cb7b4f5ad)
+
+- Once opened, what you're looking at is pretty much the User Interface of what most people call Active Directory
+
+![Screen Shot 2023-12-22 at 7 01 07 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0e91dbf0-7d5d-4483-8bcd-461ab27f0647)
+
+
 
 ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/1988bfe0-930e-45b6-abec-42123a1fe0dc)
 
