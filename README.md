@@ -454,12 +454,42 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 11 22 13 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/ec5e35c1-160e-45e1-889d-f3ce246c657c)
 
+- Just to play around with things. Let me show you a demonstration on a user locking themself out by using the wrong password to log in and how to resolve it  
+  - Go ahead and remote desktop connect back into DC-1
+  - Choose a random user in Active Directory under "_EMPLOYEES"
+  - Double click on the name of your choice
+  - Click "Account"
+  - Copy his account name
 
+![Screen Shot 2023-12-22 at 11 30 16 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/609662f1-1c48-4bec-870c-9f991a395ae0)
 
+- Logoff of Client-1 and log back in using mydomain.com\bob.saqa
+- Purposely put in the wrong password multiple times 
 
+![Screen Shot 2023-12-22 at 11 32 10 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/862226fb-252a-4a7d-b13c-b8e72538039c)
 
+- This user should definitley be locked out by now after around ten failed attempts
+- Now go back into your DC-1 remote desktop connection
+- Find that same user
+- Right click and choose "Properties"
 
+![Screen Shot 2023-12-22 at 11 33 40 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/6fa29724-027a-4667-947b-58b1cb7df8e6)
 
+- Click on the "Account" tab
+- Check the box beside "Unlock account"
+- Then hit "Apply" and "OK"
+
+![Screen Shot 2023-12-22 at 11 38 23 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/12e4bf00-2ad2-4712-bb57-90d90541df0f)
+
+- Also if a user accidentally forgets their password you can resolve this by right clicking their name again
+- Click "Reset Password"
+
+![Screen Shot 2023-12-22 at 11 40 38 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/20111fe3-52d4-4692-91b4-313458653009)
+
+- Then you can reset it to something new.
+- If its locked you can also check the box labeled "Unlock the user's account"
+
+![Screen Shot 2023-12-22 at 11 42 54 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0dee89d0-5c5e-4e95-84bb-7d6857a3339e)
 
 
 
