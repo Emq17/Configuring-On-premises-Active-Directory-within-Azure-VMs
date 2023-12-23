@@ -513,4 +513,4 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 <h1>Congratulations on making it to the end of this comprehensive step-by-step walkthough</h1>
 
-To save you some time, before destroying or closing anything out, please keep in mind that we will be using the same current environment in the next couple of walkthroughs as well. I'll see you there!
+To save you some time, before destroying or closing anything out, please keep in mind that we will be using the same current environment in the next couple of walkthroughs as well. See you there!
