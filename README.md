@@ -276,6 +276,12 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 44 58 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/8ad0590d-5e3f-4f76-9ca7-132a43591308)
 
+- Log back into the Domain Controller using the remote desktop connection
+- Use "mydomain.com\jane_admin as your Username
+
+![Screen Shot 2023-12-22 at 7 53 43 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/aae15a0c-a121-427c-8bea-73f27cd77bea)
+
+
 
 
 
