@@ -511,6 +511,6 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 - It might not be directly through Active Directory like this, but more than likey you will be doing some of these tasks in your earlier career 
 - Setting up Active Directory is a good skill to have as you may have to do this within your work many many times 
 
-<h1>Congratulations on concluding this comprehensive walkthough</h1>
+<h1>Congratulations on concluding this walkthough</h1>
 
-- Before closing anything out, keep in mind that we will be using this current environment in the next couple of walkthroughs as well
+Before closing anything out, keep in mind that we will be using this current environment in the next couple of walkthroughs as well.
