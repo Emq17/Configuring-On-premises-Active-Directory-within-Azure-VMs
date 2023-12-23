@@ -266,7 +266,7 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 32 50 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/eef6f211-8369-440b-8488-d91b71934116)
 
-
+- Next we will log out of DC-1 and log back in as "mydomain.com\jane_admin"
 
 
 
