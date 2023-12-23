@@ -230,58 +230,47 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 14 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f674c509-1925-459c-8f98-06f19c546215)
 
+- Next we will go ahead and set up an Admin Account
+- Right click "_ADMINS" and click "New", then "User"
+
+![Screen Shot 2023-12-22 at 7 17 44 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/fbc5e6c6-d6e4-488f-9189-18009434c69f)
+
+- I randomly chose the name "jane doe" to continue setting up this admin account
+- For "User logon name" typically organizations would have it as "a-jane" which means "admin jane" but this all depends where you work at
+- I chose "jane_admin" to keep things generic as usual
+- Click "Next >"
+
+![Screen Shot 2023-12-22 at 7 19 09 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0782a4ec-16e9-46d1-bd47-b31c7da7c787)
+
+- Set up your password: Password1234
+- Uncheck the box labeled "User must change password at next logon"
+- Check the box labeled "Password never expires"
+- Click "Next >" and then "Finish"
+
+![Screen Shot 2023-12-22 at 7 26 14 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f0856187-52ab-41f3-aa4b-2cd7875443e6)
+
+- So now we have a user account that is created in the folder called "_ADMINS" but that name is just ambiguous. We have to still make it an actual domain admin.
+- Right click the account and click "Properties"
+- Click "Member Of"
+- Click "Add"
+
+![Screen Shot 2023-12-22 at 7 28 48 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/48196fe2-9efa-405f-920e-1106530eb64c)
+![Screen Shot 2023-12-22 at 7 30 15 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d9cb2b01-1278-4a7a-804f-c7e6599e79d3)
+
+- Type in domain then click on "Check Names"
+
+![Screen Shot 2023-12-22 at 7 31 28 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2c1d9ae6-4015-4dcf-8aea-294bfa5e6aa8)
+
+- Join and choose "Domain Admins" group
+- Hit "OK" then "Apply" to make the changes
+
+![Screen Shot 2023-12-22 at 7 32 50 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/eef6f211-8369-440b-8488-d91b71934116)
 
 
 
 
 
 
-
-
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/1988bfe0-930e-45b6-abec-42123a1fe0dc)
-
-<h3>&#9317 Create an Admin Account in Active Directory</h3>
-
->**Notes***
->_We're going to make two folders_
-
-- On the Top Right Header, click `Tools`
-- Click `Active Directory Users and Computers`
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/5fc81f5a-2fc7-48e5-aa04-1cced62c1a79)
-
-- Right Click `mydomain.com`
-- Hover `New`
-- Click `Organizational Unit`
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/7f2b5f7c-72a9-4594-aeff-c3e3d065e0ed)
-
-- Name one folder **_EMPLOYEES**
-- Name another folder **_ADMINS**
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/ae7aa5c1-4cf9-4a5b-8b63-e544d0d5ee66)
-
-- Right Click `_ADMINS`
-- Hover `New`
-- Click `User`
-
- ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/5c549afd-743a-485f-8e20-38501618c286)
-
-- Set `First name` to **Jane**
-- Set `Last name` to **Doe**
-- Set `User logon name` to **jane_admin**
-- Set `password` to **Password1**
-- Uncheck `User must change password at next login`
-- Checkmark `Password never expires`
-- Click `Next` until the account is created
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/5b17ccda-76b7-4d40-b608-1a95e15d60e0)
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/b209d86a-1cfd-499b-81aa-701c6790d89f)
-
-- Right click on the account
-- Click `Properties`
 
   ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/040befb7-83e7-4ce8-a978-a971a0463949)
 
