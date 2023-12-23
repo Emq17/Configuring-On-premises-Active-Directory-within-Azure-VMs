@@ -285,6 +285,12 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 56 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9a926bd4-e753-4e28-9d12-cf0f5430a22c)
 
+- This is a high level overview of the current state of things and what we are going to do next
+- Now we have to go back to the Azure Portal and set Client-1's DNS settings to the Domain Controlers Private IP address
+  
+![Screen Shot 2023-12-22 at 7 59 15 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/cfc39344-2953-4b0b-ba31-c6e198f0350b)
+
+![Screen Shot 2023-12-22 at 7 59 38 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/80f4fdfa-5732-472c-831f-045aa6e7dee2)
 
 
 
@@ -293,30 +299,20 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/040befb7-83e7-4ce8-a978-a971a0463949)
 
-- Click `Member Of` tab
-- Click `Add`
-- Type in **Domain Admins**
-- Click `Check Names`
-- Click `OK`
-- Click `Apply` then `OK`
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/f2a3cbcb-80b6-40fd-bb9b-6a5f93463907)
 
-- Log off of the Domain Controller
-- logon into the VM again
-- Set `Username` to **mydomain.com\jane_admin**
-- Set `Password` to **Password1**
 
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/594e49a8-7b18-485d-9a15-680091a4e1a4)
 
-<h3>&#9318 Join Client to the Domain</h3>
 
-- Return to Azure Portal
-- Go to Client-01 Virtual Machine Overview Page
-- Click on `Networking`
-- Click on `Network Interface`
+
+
+
+
+
+
+
+
 
 ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e799f02c-4ba3-40a7-b72f-4800f89b7930)
 
