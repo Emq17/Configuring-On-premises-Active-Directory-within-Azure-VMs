@@ -424,6 +424,16 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 11 01 34 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/1a148bac-6b23-43ee-b307-e1ca7127bcb7)
 
+- As the users are being created, go back into Active Directory
+- If you right click "_EMPLOYEES" and click on "Refresh" you can see the all accounts that were created be transferred into this file
+
+![Screen Shot 2023-12-22 at 11 06 32 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c32cfab9-72bd-4fee-ad40-f4a3024a9458)
+
+![Screen Shot 2023-12-22 at 11 06 47 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/8d6fa6f6-d9ff-4178-846f-21bd959d8f9b)
+
+
+
+
 
 
 
