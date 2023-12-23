@@ -309,8 +309,61 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 ![Screen Shot 2023-12-22 at 8 13 42 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/d2ede669-7cad-4a78-88af-60a49a6dfd2d)
 
 - Moving forward, we need to change our IP settings in the Azure Portal. It's possible to set it inside the Virtual Machine but generally you don't want to change IP settings from within the VM.
-- Find DC-1 in your Azure Portal and retrieve its private IP address
-- 
+- Find DC-1 in your Azure Portal and retrieve and copy its private IP address by going to "Networking" under settings. 
+
+![Screen Shot 2023-12-22 at 8 49 06 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/1a69bfa3-a0a9-4cbc-8ac0-78a97945c715)
+
+- Go back to Client-1.
+- Go to "Networking" under settings again.
+- Click on the Network Interface 
+
+![Screen Shot 2023-12-22 at 8 54 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/b60aded1-91b6-4092-86d7-60fe052bf3a4)
+
+- Under settings, click on "DNS servers"
+- Click "Custom" instead of "Inherit from virtual network"
+- Paste DC-1's Private IP address then click "Save"
+
+![Screen Shot 2023-12-22 at 9 01 17 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/220b894a-dd06-4e33-8ef5-cd6126660fea)
+
+- Restart Client-1 from the Portal to flush the DNS Cache
+
+![Screen Shot 2023-12-22 at 9 05 46 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2b04dfb4-f2d8-49c7-89de-a045eeb4ce52)
+
+- Log back into Client-1 through Microsoft Remote Desktop with its new fresh DNS settings
+- If needed, grab the public IP address from the portal
+- We're going to log in it using "labuser" because it is not joined to the domain quite yet
+
+![Screen Shot 2023-12-22 at 9 08 03 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/f0ef1ae9-ecc7-4ce4-831b-99bad0c1187d)
+
+- When you log into Client-1 and type in "ipconfig /all" into the Command Prompt, you can see the new DNS settings and note that the DNS server is now using DC-1's private IP address
+
+![Screen Shot 2023-12-22 at 9 15 25 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/635f20a9-1743-46d4-9c89-e3dfefc21286)
+
+- If you ping it you can see that it there is a connection
+
+![Screen Shot 2023-12-22 at 9 17 56 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/7f0f1685-4c1b-4fd4-8e64-945030d76bbf)
+
+- Now as we did before, lets attempt to join Client-1 to the domain again
+- Instead of getting an error message, we now get this window
+
+![Screen Shot 2023-12-22 at 9 20 35 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/b15743e6-8dbb-41e4-89d0-6ce86b16ba40)
+
+- Typing in "mydomain.com\jane_admin and "Password1234"
+
+![Screen Shot 2023-12-22 at 9 22 13 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/38bee3d4-62ae-459f-8152-0d35834b69f3)
+
+- You should see this window appear right after
+
+![Screen Shot 2023-12-22 at 9 23 37 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/cc25d439-bef6-4e53-a529-c180f44fb310)
+
+- Let the computer restart by following the prompt after closing the "System Properties" window. Click "Restart now"
+
+![Screen Shot 2023-12-22 at 9 26 21 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/cdd32b09-65fe-4013-8d2b-5513069a4653)
+
+- Because Client-1 is now a member of the domain, and "jane_admin" is now an account within the domain, we can essentially log into potentially any computers that are on that domain.
+- Lets log in using "mydomain.com\jane_admin to Client-1
+
+![Screen Shot 2023-12-22 at 10 09 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c0da222f-2a71-4151-b9fc-4d45db95243d)
 
 
 
@@ -319,39 +372,6 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 
 
-
-
-
-
-
-
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e799f02c-4ba3-40a7-b72f-4800f89b7930)
-
-- Click `DNS servers`
-- Click `Custom` option
-- Input DC's Private IP Address
-- Click `Save`
-- Click `Overview`
-- Click `Restart`
-- Log into Client-01 Virtual Machine
-
-  ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/8e1a5578-aa6f-47f2-9796-fceebdcdf5fb)
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/f8e1036a-9916-4237-a6c4-7408daa570c8)
-
-- Right click the Windows Button
-- Click `System`
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/4155d69b-b3d4-4b3c-a7ac-1b6a7e63c1bf)
-
-- Click on `Rename this PC (advanced)`
-
-![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/e696c3d8-8cc5-4a8c-8355-e01026d99170)
-
-- In the System Properties Window, Click `Change`
-- Under `Member of`, Click `Domain`
-- Type **mydomain.com**
 - Click `OK`
 
   ![image](https://github.com/CarlosAlvarado0718/Configure-AD/assets/140138198/3bca3ba5-8405-44cd-8ac7-afdf748a551c)
