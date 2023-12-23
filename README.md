@@ -491,7 +491,21 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 11 42 54 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/0dee89d0-5c5e-4e95-84bb-7d6857a3339e)
 
+- One more thing that you can do that you probably will not be doing in a help desk role is to disable accounts
+- Right click the user once again
+- Click on "Disable Account"
 
+![Screen Shot 2023-12-22 at 11 45 13 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/70cca0c6-f39e-449a-917d-8d0c403b8c6a)
+
+- Now log out of Client-1 and try to log back into it again using the user's account you have disabled
+- You will now see that you have no access with one of these messages below
+
+![Screen Shot 2023-12-22 at 11 47 46 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/3e11df2b-90d6-47c4-b251-361bcdceeb7d)
+![Screen Shot 2023-12-22 at 11 49 09 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/01a08850-1956-408b-be56-63ccf78dff8d)
+
+- If you go back to DC-1 then ind the user and right click choosing "Enable Account", this will resolve the issue
+
+![Screen Shot 2023-12-22 at 11 50 56 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/c6f42cdb-75f3-4abe-8807-1100d1226621)
 
 
 
