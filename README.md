@@ -281,6 +281,11 @@ Refer back to [Establishing Virtual Machines with Remote Desktop](https://github
 
 ![Screen Shot 2023-12-22 at 7 53 43 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/aae15a0c-a121-427c-8bea-73f27cd77bea)
 
+- Once logged in, just for fun, open up Command Prompt again and type in "whoami" to see the changes
+
+![Screen Shot 2023-12-22 at 7 56 11 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/9a926bd4-e753-4e28-9d12-cf0f5430a22c)
+
+
 
 
 
