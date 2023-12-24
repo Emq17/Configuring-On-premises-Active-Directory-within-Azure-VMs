@@ -1,4 +1,6 @@
-![Screen Shot 2023-12-24 at 3 32 58 AM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/5a9f4c9b-052b-4886-9817-58ffd826cb39)
+<p align="center">
+<img src="https://i.imgur.com/xyUFYlc.png" alt="Logo"/>
+</p>
 
 <h1>Configuring On-Premises Active Directory Within Azure VMs</h1>
 
