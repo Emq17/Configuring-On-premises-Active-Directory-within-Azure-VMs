@@ -16,7 +16,7 @@ There are two different types of Active Directory essentially. There's the type 
 <h2>Operating Systems</h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
+- Windows 10 (22H2)
 
 <h2>Deployment and Configuration</h2>
 
