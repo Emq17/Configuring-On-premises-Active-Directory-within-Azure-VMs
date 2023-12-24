@@ -1,8 +1,7 @@
-<p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
-</p>
+![Screen Shot 2023-12-24 at 3 32 58 AM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/5a9f4c9b-052b-4886-9817-58ffd826cb39)
 
-<h1>Configuring-On-Premises-Active-Directory-Within-Azure-VMs</h1>
+<h1>Configuring On Premises Active Directory Within Azure VMs</h1>
+
 There are two different types of Active Directory essentially. There's the type that is a software that you install on a computer you own (on-premises) and then there is another called Azure Active Directory that is a serverless software as a service directly in the cloud. This walkthrough that I created demonstrates and outlines the implementation of on-premises Active Directory within Azure virtual machines. This exercise allows us to explore deeper, enhancing our understanding of its various components.<br />
 
 
