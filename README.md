@@ -95,7 +95,7 @@ A domain controller is a type of server or computer that basically has Active Di
 
 Refer back to [Establishing Virtual Machines with Remote Desktop](https://github.com/Emq17/Establishing-Virtual-Machines-With-Remote-Desktop) in order to Remote Desktop Connect into your Virtual Machines.
 
-- Login to the Client's Virtual Machine
+- Log into the Client's Virtual Machine
   
 ![Screen Shot 2023-12-22 at 5 17 56 PM](https://github.com/Emq17/Configuring-On-premises-Active-Directory-within-Azure-VMs/assets/147126755/2e1b9433-c839-4c9b-8e12-5cec88883927)
 
